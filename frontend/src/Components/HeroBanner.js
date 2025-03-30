@@ -1,11 +1,11 @@
-import { Box,Button,Typography } from '@mui/material'
+import { Box, Containe,Button, Stack,Typography } from '@mui/material'
 import React from 'react'
 import HeroBannerImage from '../assets/images/banner.png'
 
 export const HeroBanner = () => {
   return (
     <Box sx={{
-        mt:{lg:'212px',sm:'70px'},
+        mt:{lg:'212px',xs:'70px'},
         ml:{sm:'50px'}
     }} position='relative' fontSize='26px'>
     <Typography color='#FF2625' fontWeight="600" fontSize="26px">
