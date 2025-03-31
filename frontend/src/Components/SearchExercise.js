@@ -1,27 +1,40 @@
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { exerciseOptions,fetchData } from '../utils/fetchData'
+import HorizontalScrollbar from '../Components/HorizontalScrollbar';
 
-export const SearchExercise = () => {
-    const [search,setsearch]=useState('');
-    const [exercises,setexercises] =useState([]);
-    const [bodyParts,setbodyParts] = useState([]);
 
+export const SearchExercise = ({setExercises,bodyPart,setBodyPart}) => {
+    const [search,setSearch]=useState('');
+    const [bodyParts,setBodyParts] = useState([]);
+
+    useEffect(()=>{
+         const fetchExercisesData =async()=>{
+            const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+            
+            setBodyParts(['all',...bodyPartsData]);
+        }
+        
+        fetchExercisesData();
+    },[])
     
-
     const handleSearch = async ()=>{
-        if(search){
-            const exercisesData =await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
-
+        if (search) {
+            const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+      
             const searchedExercises = exercisesData.filter(
-                (exercise)=> exercise.name.toLowerCase().includes(search) || 
-                exercise.target.toLowerCase().includes(search) ||
-                exercise.equipment.toLowerCase().includes(search) ||
-                exercise.bodyPart.toLowerCase().includes(search) 
+              (item) => item.name.toLowerCase().includes(search)
+                     || item.target.toLowerCase().includes(search)
+                     || item.equipment.toLowerCase().includes(search)
+                     || item.bodyPart.toLowerCase().includes(search),
             );
-            setsearch('');
-            setexercises(searchedExercises);
-        }        
+      
+            window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+            
+            
+            setSearch('');
+            setExercises(searchedExercises);
+          }       
     }
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -43,7 +56,7 @@ export const SearchExercise = () => {
             }} 
             height="76px"
             value={search}
-            onChange={(e)=>{setsearch(e.target.value.toLowerCase())}}
+            onChange={(e)=>{setSearch(e.target.value.toLowerCase())}}
             placeholder='Search Exercises'
             type='text'
             />
@@ -60,6 +73,9 @@ export const SearchExercise = () => {
             }}
             onClick={handleSearch}
             >Search</Button>
+        </Box>
+        <Box sx={{position:'relative',width:'100%',p:'20px',overflowX: "auto", whiteSpace: "nowrap" }}>
+            <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
         </Box>
 
     </Stack>
