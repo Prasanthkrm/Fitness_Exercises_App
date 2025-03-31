@@ -21,6 +21,7 @@ export const Exercise = ({exercises,setExercises,bodyPart}) => {
       }
 
       setExercises(exercisesData);
+      setCurrentPage(1);
     };
 
     fetchExercisesData();
@@ -54,16 +55,16 @@ export const Exercise = ({exercises,setExercises,bodyPart}) => {
         {currentExercises.map((exercise,index)=>(<ExerciseCard key={index} exercise={exercise} />))}
 
       </Stack>
-      <Stack mt='100px' alignItems='center'>
-        {exercises.length > 6 &&(
-          <Pagination 
-            color='standard'
-            shape='rounded'
+      <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
+        {exercises.length > 6 && (
+          <Pagination
+            color="standard"
+            shape="rounded"
             defaultPage={1}
-            count={Math.ceil(exercises.length/9)}
+            count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
             onChange={paginate}
-            size='large'
+            size="large"
           />
         )}
       </Stack>
