@@ -22,7 +22,6 @@ export const Footer = () => {
                         <ul className='list-unstyled fw-bold'>
                             <li className='mt-3'><Link className='under' onClick={scrollToTop} to="/">Home</Link></li>
                             <li className='mt-3'><Link className='under' onClick={scrollToTop} to="/about">About Us</Link></li>
-                            <li className='mt-3 under'>Delivery</li>
                             <li className='mt-3 under'>Privacy Policy</li>
                         </ul>
                     </div>
