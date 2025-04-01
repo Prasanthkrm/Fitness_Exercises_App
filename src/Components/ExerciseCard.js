@@ -5,7 +5,7 @@ import { Button, Stack, Typography } from '@mui/material';
 export const ExerciseCard = ({ exercise }) => {
   
   const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top on click
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
   return (

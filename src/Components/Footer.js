@@ -11,7 +11,7 @@ const scrollToTop = () => {
 export const Footer = () => {
   return (
     <>
-     <div className=" py-5 bg-black footer mt-5" style={{ backgroundImage: `url(${bg_black})` }}>
+     <div id="footer" className=" py-5 bg-black footer mt-5" style={{ backgroundImage: `url(${bg_black})` }}>
             <div className=" row d-flex justify-content-between my-5 ">
                 <div className="col-md-4 me-1 mt-5">
                     <h2 className='text-danger fw-bolder'>Exercise Studio</h2>
