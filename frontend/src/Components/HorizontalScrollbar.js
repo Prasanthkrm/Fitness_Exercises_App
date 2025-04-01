@@ -29,7 +29,7 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScrollbar = ({ data, setBodyPart, bodyPart ,isBodyPart}) => (
+const HorizontalScrollbar = ({ data, setBodyPart, bodyPart ,isBodyParts}) => (
   <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {data.map((item) => (
@@ -39,7 +39,7 @@ const HorizontalScrollbar = ({ data, setBodyPart, bodyPart ,isBodyPart}) => (
           title={item.id || item}
           m="0 40px"
         >
-          {isBodyPart ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item}/>}
+          {isBodyParts ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item}/>}
         </Box>
       ))}
     </ScrollMenu>

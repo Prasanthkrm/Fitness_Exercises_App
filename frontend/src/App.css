@@ -13,6 +13,30 @@ body {
   ::-webkit-scrollbar {
     width: 0px;
   }
+  .footer{
+    color: #d9d9d9;
+    background-color: #323223;
+    object-fit:contain;
+    gap: 20px;
+    padding: 10px 8vw ;
+    padding-top: 30px;
+    min-height: 650px; 
+}
+.footer-des{
+    text-align: justify;
+}
+.footer-social-icons img{
+    width: 30px;
+    height: 30px;
+}
+.under{
+    color: white; /* Set your desired color */
+  text-decoration: none;
+}
+.under:hover {
+    color: rgb(225, 96, 96); /* Change color on hover */
+    text-decoration: underline; /* Optional: underline on hover */
+  }
   
   .right-arrow,
   .left-arrow {
