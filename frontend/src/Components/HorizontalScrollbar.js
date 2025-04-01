@@ -6,12 +6,14 @@ import { Box, IconButton } from '@mui/material';
 import BodyPart from './BodyPart';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
+import { ExerciseCard } from './ExerciseCard';
+
 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <IconButton onClick={() => scrollPrev()} sx={{ position: "absolute", left: "0px", zIndex: 2 }}>
+    <IconButton onClick={() => scrollPrev()} >
       <img src={LeftArrowIcon} alt="left-arrow" style={{ width: "40px" }} />
     </IconButton>
   );
@@ -27,7 +29,7 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScrollbar = ({ data, setBodyPart, bodyPart }) => (
+const HorizontalScrollbar = ({ data, setBodyPart, bodyPart ,isBodyPart}) => (
   <Box sx={{ position: "relative", width: "100%", overflow: "hidden" }}>
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {data.map((item) => (
@@ -37,7 +39,7 @@ const HorizontalScrollbar = ({ data, setBodyPart, bodyPart }) => (
           title={item.id || item}
           m="0 40px"
         >
-          <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} />
+          {isBodyPart ? <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : <ExerciseCard exercise={item}/>}
         </Box>
       ))}
     </ScrollMenu>
