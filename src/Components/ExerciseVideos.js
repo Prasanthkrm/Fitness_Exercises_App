@@ -56,10 +56,10 @@ export const ExerciseVideos = ({ exerciseVideos, name }) => {
                 objectFit: 'cover', // Ensure the image covers the space without distortion
               }}
             />
-            <Typography variant="h5" color="#000" sx={{ textAlign: 'center', mt: '10px' }}>
+            <Typography  variant="h5" color="#000" sx={{ textAlign: 'center', mt: '10px' }}>
               {item.video.title}
             </Typography>
-            <Typography variant="h6" color="#000" sx={{ textAlign: 'center', mt: '5px' }}>
+            <Typography fontWeight={800} variant="h6" color="#000" sx={{ textAlign: 'center', mt: '5px' }}>
               {item.video.channelName}
             </Typography>
           </a>
